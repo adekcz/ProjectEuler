@@ -71,6 +71,7 @@ public class DivisionHelper {
 
     /**
      * There is no longer number "1" in the list since 18.4.2014.
+     * list is ordered
      * @param n
      * @return
      */

@@ -17,12 +17,71 @@ import java.util.List;
  */
 public class EulerHelper {
 
+    public static <T extends Comparable> List<T> merge(List<T> a, List<T> b){
+        if(a == null){
+            a = new ArrayList<>();
+        }
+        if(b == null){
+            b = new ArrayList<>();
+        }
+        List<T> result = new ArrayList<>();
+        int j = 0;
+        int i = 0;
+        while(true){
+            if(i==a.size() || j==b.size()){
+                break;
+            }
+            if(a.get(i).compareTo(b.get(j))<0){
+                result.add(a.get(i));
+                i++;
+                continue;
+            }
+            if(a.get(i).compareTo(b.get(j))>0){
+                result.add(b.get(j));
+                j++;
+                continue;
+            }
+            if(a.get(i).compareTo(b.get(j))==0){
+                result.add(a.get(i));
+                i++;
+                continue;
+            }
+        }
+        if(i<a.size()){
+            result.addAll(a.subList(i, a.size()));
+        }
+        if(j<b.size()){
+            result.addAll(b.subList(j, b.size()));
+        }
+
+
+        return result;
+    } 
+
+    /**
+     * Removes right-most digit from number;
+     * @param n
+     * @return 
+     */
     public static int truncRight(int n){
         return n/10;
     }
+
+    /**
+     * removes left-most digit from number
+     * @param n
+     * @return 
+     */
     public static int truncLeft(int n){
         return n % MathHelper.pow(10, MathHelper.numberOfDigit(n)-1);
     }
+
+    /**
+     * cyclicly shifts number to left
+     * @param n
+     * @param shift
+     * @return 
+     */
     public static int shiftLeft(int n, int shift) {
         String temp = BigInteger.valueOf(n).toString();
         for (int i = 0; i < shift; i++) {
@@ -31,6 +90,11 @@ public class EulerHelper {
         return new BigInteger(temp).intValue();
     }
 
+    /**
+     * tests whether this number contains some digit more then once
+     * @param n
+     * @return 
+     */
     public static boolean containsDupl(int n) {
         String sn = n + "";
         return containsDupl(sn);
@@ -53,7 +117,7 @@ public class EulerHelper {
         return pandigital(throught, inputNumbers);
     }
     public static boolean pandigital(int throught, String inputNumbers) {
-        return pandigital(1, throught+1, inputNumbers);
+        return pandigital(1, throught, inputNumbers);
     }
     public static boolean pandigital(int from, int throught, String inputNumbers) {
         if (inputNumbers.length() != throught) {
@@ -67,6 +131,11 @@ public class EulerHelper {
         return true;
     }
 
+    /**
+     * 
+     * @param s
+     * @return 
+     */
     public static int alphaValue(String s) {
         int value = 0;
         for (int i = 0; i < s.length(); i++) {
@@ -96,11 +165,13 @@ public class EulerHelper {
 
 
     }
+
     public static <T> String  stringify(List<T> data){
-        StringBuilder result = new StringBuilder();
-        for(T t : data){
-            result.append(t.toString());
+        if(data==null){
+            return "";
         }
+        StringBuilder result = new StringBuilder();
+        data.stream().forEach(d -> result.append(d.toString()));
         return result.toString();
 
     }
