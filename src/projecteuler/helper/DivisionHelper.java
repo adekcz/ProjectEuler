@@ -39,6 +39,12 @@ public class DivisionHelper {
         return result;
     }
 
+
+    /**
+     * 
+     * @param n
+     * @return Set containing all divisors of number (6: 1,2,3,6)
+     */
     public static Set divisors(long n) {
         Set<Integer> result = new HashSet<>();
         result.add(1);

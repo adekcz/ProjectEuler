@@ -8,14 +8,18 @@ package projecteuler;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.format.TextStyle;
 
 /**
  *
  * @author Michal Keda
  */
 public class Problem19 {
-    public static void main(String[] args) {
+
+	/**
+	 *
+	 * @param args
+	 */
+	public static void main(String[] args) {
         java.time.LocalDate start = LocalDate.of(1901, 1, 1);
         java.time.LocalDate end = LocalDate.of(2000, 12, 31);
         java.time.LocalDate current = start;
