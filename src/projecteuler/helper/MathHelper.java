@@ -86,7 +86,32 @@ public class MathHelper {
         
         
     }
-    
+   public static boolean[] erathonesBoolArr(int upperBound) {
+      int upperBoundSquareRoot = (int) Math.sqrt(upperBound);
+      boolean[] isPrime = new boolean[upperBound + 1];
+	   for(int i=2; i<upperBound+1; i++ ){isPrime[i]=true;}
+
+      for (int m = 2; m <= upperBoundSquareRoot; m++) {
+            if (isPrime[m]) {
+                  for (int k = m * m; k <= upperBound; k += m)
+                        isPrime[k] = false;
+            }
+      }
+	  return isPrime;
+} 
+
+   public static List<Integer> erathonesList(int limit){
+	   List<Integer> primes = new ArrayList<>();
+	   int i = 2;
+	   for(boolean b : erathonesBoolArr(limit)){
+		   if (b){
+			   primes.add(i-2);
+		   }
+		   i++;
+	   }
+		
+	   return primes;
+   }
     
     public static <T extends Number> int sum(Collection<T> n){
         int result = 0;

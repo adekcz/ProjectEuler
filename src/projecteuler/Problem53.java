@@ -15,7 +15,7 @@ import projecteuler.helper.DivisionHelper;
 import projecteuler.helper.Timer;
 
 /**
- *
+ * //https://projecteuler.net/overview=053 ten pages, best is super optimized approach via Pascal's triangle.
  * @author Michal Keda
  */
 public class Problem53 {
@@ -37,19 +37,19 @@ public class Problem53 {
 	public static void main(String[] args) {
 		Timer tim = new Timer();
 		divisors.put(0, new ArrayList<>());
-		for (int i = 1; i <= 100; i++) {
+		for (int i = 1; i <= 600; i++) {
 			List<Integer> temp = new ArrayList<>();
 			temp.addAll(DivisionHelper.primeFactors(i));
 			divisors.put(i, temp);
 		}
 
 		factorials.put(0, new ArrayList<>());
-		for (int i = 1; i <= 100; i++) {
+		for (int i = 1; i <= 600; i++) {
 			List<Integer> temp = new ArrayList<>(factorials.get(i - 1));
 			temp.addAll(DivisionHelper.primeFactors(i));
 			factorials.put(i, temp);
 		}
-		for (int i = 1; i <= 100; i++) {
+		for (int i = 1; i <= 600; i++) {
 			for (int j = 1; j <= i; j++) {
 				List<Integer> comb = new ArrayList<>();
 				comb.addAll(factorials.get(i));

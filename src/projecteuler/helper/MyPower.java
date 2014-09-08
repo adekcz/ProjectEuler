@@ -13,7 +13,7 @@ import java.util.Objects;
 import projecteuler.helper.MathHelper;
 
 /**
- * this class should be used.
+ * class for storing "normal form" of numbers in form a**b
  * @author Michal Keda
  */
 public class MyPower {
