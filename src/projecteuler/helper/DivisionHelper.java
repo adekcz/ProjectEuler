@@ -24,7 +24,7 @@ public class DivisionHelper {
      * @param n
      * @return Map<factor, exponentOfFactor>
      */
-    public static Map primeFactorsMap(long n) {
+    public static Map<Integer, Integer> primeFactorsMap(long n) {
         List<Integer> factors = primeFactors(n);
         Map<Integer, Integer> result = new HashMap<>();
         for (Iterator<Integer> it = factors.iterator(); it.hasNext();) {
@@ -45,8 +45,11 @@ public class DivisionHelper {
      * @param n
      * @return Set containing all divisors of number (6: 1,2,3,6)
      */
-    public static Set divisors(long n) {
+    public static Set<Integer> divisors(long n) {
         Set<Integer> result = new HashSet<>();
+		if(n ==0){
+			return result;
+		}
         result.add(1);
         Set<Integer> temp = new HashSet<>();
         Map<Integer, Integer> factors = primeFactorsMap(n);
@@ -81,7 +84,10 @@ public class DivisionHelper {
      * @param n
      * @return
      */
-    public static List primeFactors(long n) {
+    public static List<Integer> primeFactors(long n) {
+		if(n == 0){
+			return new ArrayList<>();
+		}
         List<Integer> result = new ArrayList<>();
         result.add(1);
         for (int i = 2; i <= n; i++) {
@@ -93,7 +99,10 @@ public class DivisionHelper {
         return result;
     }
 
-    public static List naiveDivisors(long n) {
+    public static List<Integer> naiveDivisors(long n) {
+		if(n ==0 ){
+			return new ArrayList<>();
+		}
         List<Integer> result = new ArrayList<>();
         result.add(1);
         for (int i = 2; i <= n; i++) {

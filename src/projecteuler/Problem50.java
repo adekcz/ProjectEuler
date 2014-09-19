@@ -20,7 +20,6 @@ public class Problem50 {
 	public static void main(String[] args) {
 		Set<Integer> primesSet = MathHelper.erathones(limit);
 		List<Integer> primes = MathHelper.erathonesList(limit);
-		System.out.println(primes);
 		int maxPrime = 2;
 		int maxStreak = 1;
 		int[] arrays = new int[primes.size()];

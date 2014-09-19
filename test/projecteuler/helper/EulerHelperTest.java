@@ -6,6 +6,7 @@
 
 package projecteuler.helper;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -230,5 +231,65 @@ public class EulerHelperTest {
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
     }
+
+	/**
+	 * Test of containsDupl method, of class EulerHelper.
+	 */
+	@Test
+	public void testContainsDupl_String() {
+		System.out.println("containsDupl");
+		String sn = "123";
+		boolean expResult = false;
+		boolean result = EulerHelper.containsDupl(sn);
+		assertEquals(expResult, result);
+
+		sn = "11";
+		expResult = true;
+		result = EulerHelper.containsDupl(sn);
+		assertEquals(expResult, result);
+
+		sn = "001";
+		expResult = true;
+		result = EulerHelper.containsDupl(sn);
+		assertEquals(expResult, result);
+	}
+
+	
+	/**
+	 * Test of cipherSum method, of class EulerHelper.
+	 */
+	@Test
+	public void testCipherSum() {
+		System.out.println("cipherSum");
+		BigInteger bi = BigInteger.valueOf(1);
+		int expResult = 1;
+		int result = EulerHelper.cipherSum(bi);
+		assertEquals(expResult, result);
+
+		bi = BigInteger.valueOf(1234);
+		expResult = 10;
+		result = EulerHelper.cipherSum(bi);
+		assertEquals(expResult, result);
+		
+		bi = BigInteger.valueOf(12340);
+		expResult = 10;
+		result = EulerHelper.cipherSum(bi);
+		assertEquals(expResult, result);
+
+		bi = BigInteger.valueOf(-12340);
+		BigInteger unmodified = BigInteger.valueOf(-12340);
+		expResult = 10;
+		result = EulerHelper.cipherSum(bi);
+		System.out.println(bi);
+		assertEquals(expResult, result);
+		
+		bi = BigInteger.valueOf(-12340);
+		unmodified = BigInteger.valueOf(-12340);
+		expResult = 10;
+		result = EulerHelper.cipherSum(bi);
+		System.out.println(bi);
+		assertEquals(bi, unmodified);
+		// TODO review the generated test code and remove the default call to fail.
+	}
     
 }

@@ -15,12 +15,26 @@ import java.time.Instant;
  */
 public class Timer {
     private java.time.Instant start;
+    private java.time.Instant lastCheck;
+
     public Timer(){
         start = Instant.now();
     }
-    public Duration stop(){
+    public Duration sinceStart(){
+		lastCheck = Instant.now();
         return Duration.between(start, Instant.now());
     }
+
+	/**
+		* takes into account calls to <b>sinceStart()</b and <b>sinceLastCheck</b>
+	 * @return 
+	 */
+	public Duration sinceLastCheck(){
+
+        Duration result =  Duration.between(lastCheck, Instant.now());
+		lastCheck = Instant.now();
+		return result;
+	}
     
     
 }

@@ -68,7 +68,7 @@ public class Problem53 {
 			}
 		}
 		System.out.println(count);
-		System.out.println(tim.stop().toMillis() + " ms");
+		System.out.println(tim.sinceStart().toMillis() + " ms");
 		return;
 	}
 

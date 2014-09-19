@@ -36,7 +36,7 @@ public class Problem41 {
             
 
         }
-        System.out.println(t.stop());
+        System.out.println(t.sinceStart());
     }
     
 }

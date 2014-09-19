@@ -184,5 +184,18 @@ public class EulerHelper {
 		System.out.println("");
 
 	}
+
+
+	public static int cipherSum(BigInteger bi){
+		if (bi.compareTo(BigInteger.ZERO) == -1){
+			bi = bi.abs();
+		}
+		int sum = 0;
+		String toString = bi.toString();
+		for(char c : toString.toCharArray()){
+			sum += c - '0';
+		}
+		return sum;
+	}
     
 }
